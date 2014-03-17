@@ -32,6 +32,8 @@ class Giccoo
 			"renren":"http://share.renren.com/share/buttonshare.do?title={title}&link={url}"
 			"weibo":"http://v.t.sina.com.cn/share/share.php?title={title}&url="
 			"qzone":"http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url={url}&title={title}"
+			"facebook":"http://www.facebook.com/sharer/sharer.php?s=100&p[url]={url}}&p[title]={title}&p[summary]={title}"
+			"twitter":"https://twitter.com/intent/tweet?text={title}"
 		$('a[data-share]').click ->
 			$ep.fShare list[$(this).data('share')],content,url
 	fShare: (url,content,sendUrl)->
@@ -45,6 +47,24 @@ class Giccoo
 		url = url.replace "{url}",backUrl
 		# console.log url
 		window.open url,'_blank'
+	fBindRadio: (e)->
+		$e = this
+		e.each (i)->
+			$div = $('<div>').addClass 'radio-parent '+$(this).attr 'class'
+			$i = $ '<i>'
+			$(this).before $div
+			$div.addClass($(this).attr('class')).append $ this
+			$div.append $i 
+			$(this).change ->
+				$o = $(this)
+				$('[name='+$o.attr('name')+']').parent().removeClass 'on'
+				console.log $('[name='+$o.attr('name')+']')
+				setTimeout ->
+					if $o.is ':checked'
+						$o.parent().addClass 'on'
+					else
+						$o.parent().removeClass 'on'
+				,10
 	fBindCheckBox:(e)->
 		$e = this
 		e.each (i)->
