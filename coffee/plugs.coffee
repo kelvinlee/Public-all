@@ -25,23 +25,25 @@ class Giccoo
 		window.addEventListener "load", ->
 			setTimeout -> 
 					window.scrollTo 0,1
-	BindShare: (content,url = window.location.href)->
+	BindShare: (content,url = window.location.href,pic)->
 		$ep = this
 		list = 
-			"qweibo":"http://v.t.qq.com/share/share.php?title={title}&url="
-			"renren":"http://share.renren.com/share/buttonshare.do?title={title}&link={url}"
-			"weibo":"http://v.t.sina.com.cn/share/share.php?title={title}&url="
-			"qzone":"http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url={url}&title={title}"
-			"facebook":"http://www.facebook.com/sharer/sharer.php?s=100&p[url]={url}}&p[title]={title}&p[summary]={title}"
-			"twitter":"https://twitter.com/intent/tweet?text={title}"
-		$('a[data-share]').click ->
-			$ep.fShare list[$(this).data('share')],content,url
-	fShare: (url,content,sendUrl)->
+			"qweibo":"http://v.t.qq.com/share/share.php?title={title}&url={url}&pic={pic}"
+			"renren":"http://share.renren.com/share/buttonshare.do?title={title}&link={url}&pic={pic}"
+			"weibo":"http://v.t.sina.com.cn/share/share.php?title={title}&url={url}&pic={pic}"
+			"qzone":"http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url={url}&title={title}&pic={pic}"
+			"facebook":"http://www.facebook.com/sharer/sharer.php?s=100&p[url]={url}}&p[title]={title}&p[summary]={title}&pic={pic}"
+			"twitter":"https://twitter.com/intent/tweet?text={title}&pic={pic}"
+			"kaixin":"http://www.kaixin001.com/rest/records.php?content={title}&url={url}&pic={pic}"
+		$("a[data-share]").unbind('click').bind 'click', ->
+			$ep.fShare list[$(this).data('share')],content,url,pic
+	fShare: (url,content,sendUrl,pic = "")->
 		# 分享内容
-		content = content.val()
+		content = content
 		shareContent = encodeURIComponent content
-		pic = ''
+		pic = encodeURIComponent pic
 		url = url.replace "{title}",shareContent
+		url = url.replace "{pic}",pic
 		# 分享地址
 		backUrl = encodeURIComponent sendUrl
 		url = url.replace "{url}",backUrl
