@@ -51,7 +51,7 @@ adaptUILayout = (()->
 		head = document.getElementsByTagName 'head'
 		viewport = document.createElement 'meta'
 		viewport.name = 'viewport'
-		viewport.content = initialContent
+		viewport.content = initialContent+",minimal-ui"
 		head.length > 0 && head[head.length - 1].appendChild viewport
 
 	{

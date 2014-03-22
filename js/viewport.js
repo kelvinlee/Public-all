@@ -88,3 +88,5 @@ adaptUILayout = (function() {
     adapt: adapt
   };
 })();
+
+adaptUILayout.adapt(640);
