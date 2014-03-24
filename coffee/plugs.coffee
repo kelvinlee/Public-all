@@ -10,6 +10,21 @@ class Giccoo
 	weixinHide : ->
 		document.addEventListener 'WeixinJSBridgeReady', ->
 			WeixinJSBridge.call 'hideToolbar'
+	getRandoms: (l,min,max)->
+		num = new Array()
+		for i in [0...l]
+			val = Math.ceil(Math.random()*(max-min)+min)
+			isEqu = false
+			for idx in [0...num.length]
+				if num[idx] is val 
+					isEqu = true
+					break 
+			if isEqu
+				_i--
+			else
+				num[num.length] = val
+		return num
+		
 	# 增加旋转判断.
 	checkOrientation : ()->
 		orientationChange = ->
