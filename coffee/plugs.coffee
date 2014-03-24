@@ -130,25 +130,28 @@ class Giccoo
 		window.addEventListener 'devicemotion',deviceMotionHandler, false if window.DeviceMotionEvent
 	fUnBindShake: ->
 		window.removeEventListener 'devicemotion',deviceMotionHandler, false if window.DeviceMotionEvent
-SHAKE_THRESHOLD = 2000
+SHAKE_THRESHOLD = 1000
 if navigator.userAgent.indexOf('iPhone')>-1
-	SHAKE_THRESHOLD = 2000 
+	SHAKE_THRESHOLD = 700 
 else if navigator.userAgent.indexOf('QQ')>-1
 	SHAKE_THRESHOLD = 1000
+
+# alert SHAKE_THRESHOLD
 last_update = 0
 _x = _y = _z = last_x = last_y = last_z = 0
 DMHandler = ->
 deviceMotionHandler = (eventData)->
 	acceleration = eventData.accelerationIncludingGravity
 	curTime = new Date().getTime()
-	if ((curTime - last_update)> 100)
+	if ((curTime - last_update)> 50)
 		diffTime = parseInt(curTime - last_update)
 		last_update = curTime 
 		_x = acceleration.x
 		_y = acceleration.y
 		_z = acceleration.z
 		speed = Math.abs(_x + _y + _z - last_x - last_y - last_z) / diffTime * 10000
-		console.log speed
+		console.log _x , _y, _z
+		# console.log speed
 		DMHandler() if (speed > SHAKE_THRESHOLD)
 		last_x = _x
 		last_y = _y
