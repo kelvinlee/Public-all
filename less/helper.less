@@ -34,6 +34,11 @@
 .pos(@x: absolute) {
     position: @x;
 }
+.pcenter(@w: 100px,@h:40px){
+    .tl(50%,50%);
+    .wh(@w,@h);
+    margin:-@h/2 0px 0px -@w/2;
+}
 .tl(@t : 0px,@l : 0px,@x : absolute) {
     .pos(@x);
     top:@t;

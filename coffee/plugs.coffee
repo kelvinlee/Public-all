@@ -24,7 +24,11 @@ class Giccoo
 			else
 				num[num.length] = val
 		return num
-		
+	getParam: (name)->
+		reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i")
+		r = window.location.search.substr(1).match(reg)
+		return unescape(r[2]) if (r != null) 
+		return null
 	# 增加旋转判断.
 	checkOrientation : ()->
 		orientationChange = ->
@@ -103,13 +107,17 @@ class Giccoo
 				,10
 	fBindSelect : (e)->
 		$e = this
-		e.each (i)-> 
+		e.each (i)->
+			# alert $(this).val()
 			$div = $('<div>').addClass 'select-parent'
 			$span = $ '<span>'
 			$i = $ '<i>'
 			$(this).before $div
 			$div.addClass($(this).attr('class')).append $ this
-			$div.append $span.append $(this).find('option:checked').html()
+			if $(this).val()
+				$div.append $span.append $(this).find('option[value="'+$(this).val()+'"]').text()
+			else
+				$div.append $span.append $(this).find('option').text()
 			$div.append $i 
 			$(this).change ->
 				$o = $(this)
@@ -118,7 +126,11 @@ class Giccoo
 				,10
 			
 	fChangeSelectVal : (o)->
-		$(o).next().html $(o).find('option:checked').html()
+		# alert $(o).val()
+		if $(o).val()
+			$(o).next().html $(o).find('option[value="'+$(o).val()+'"]').text()
+		else
+			$(o).next().html $(o).find('option').text()
 	# 重力感应
 	fBindOrientation : ()->
 		window.addEventListener 'deviceorientation', this.orientationListener, false
