@@ -10,6 +10,18 @@ class Giccoo
 	weixinHide : ->
 		document.addEventListener 'WeixinJSBridgeReady', ->
 			WeixinJSBridge.call 'hideToolbar'
+	cWeek: (week,pre = "周")->
+		return pre+"一" if week is 1
+		return pre+"二" if week is 2
+		return pre+"三" if week is 3
+		return pre+"四" if week is 4
+		return pre+"五" if week is 5
+		return pre+"六" if week is 6
+		return pre+"日" if week is 0
+			
+
+	getRandom: (max,min)->
+		parseInt(Math.random()*(max-min+1)+min)
 	getRandoms: (l,min,max)->
 		num = new Array()
 		for i in [0...l]
