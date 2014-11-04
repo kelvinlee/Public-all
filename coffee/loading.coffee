@@ -21,7 +21,7 @@ class loading
 		this.progress n,this._count
 		if n is this._count
 			@_finished = true
-			this.finished() 
+			this.finished()
 	finished: ->
 		console.log 'finished'
 	progress: (now,count)->
