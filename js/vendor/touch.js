@@ -88,8 +88,8 @@
       })
       .on('touchmove MSPointerMove pointermove', function(e){
         // console.log(e);
-        if (navigator.userAgent.match(/Android/i) && Math.abs(touch.x1 - touch.x2) > 10)
-          e.preventDefault()
+        // if (navigator.userAgent.match(/Android/i) && Math.abs(touch.x1 - touch.x2) > 10)
+          // e.preventDefault()
         if((_isPointerType = isPointerEventType(e, 'move')) &&
           !isPrimaryTouch(e)) return
         firstTouch = _isPointerType ? e : e.touches[0]
