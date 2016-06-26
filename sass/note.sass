@@ -1,30 +1,35 @@
 .note
-	+posf
-	+tl
-	+br
-	+wh(100%,100%)
-	+bc(rgba(0,0,0,0.6))
+	position: fixed
+	top: 0px
+	left: 0px
+	bottom: 0px
+	right: 0px
+	width: 100%
+	height: 100%
+	background-color: rgba(0, 0, 0, 0.6)
 	z-index: 9999
 	.note-box
-		+text-center
-		+posa
-		+tl(50%)
-		+w(100%)
-		// z-index: 9999
+		text-align: center
+		position: absolute
+		top: 50%
+		left: 0px
+		width: 100%
 		.note-content
 			display: inline-block
 			padding: 10px 11px 10px 10px
-			background-color: rgba(0,0,0,0.7)
+			background-color: rgba(0, 0, 0, 0.7)
 			color: #fff
 			border-radius: 5px
 			max-width: 90%
-			+box
-		.icon-form,.note-text
+			box-sizing: border-box
+		.icon-form, .note-text
 			display: inline-block
 			vertical-align: top
 			line-height: 25px
 		.icon-form
-			+wh(25px,25px)
+			+wh(1.1rem,1.1rem)
+			vertical-align: middle
 		.note-text
 			+font-size(0.8rem)
+			line-height: 1.4em
 			letter-spacing: 2px
