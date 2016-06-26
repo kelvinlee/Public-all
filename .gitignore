@@ -1,0 +1,6 @@
+
+*.sassc
+
+*.scssc
+
+bower_components/angular-latest/validate-commit-msg.spec.js
