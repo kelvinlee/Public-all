@@ -114,6 +114,8 @@
 @mixin keyframes($key)
   @keyframes #{$key}
     @content
+  .#{$key}
+    animation-name: #{$key}
 
 =tran($all: all,$time: .5s,$ease: ease)
   +ada(transition, $all $time $ease)
