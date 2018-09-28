@@ -7,7 +7,7 @@
 		"uuidString": "4559D91C-C41A-4389-B717-B50C467D188C"
 		}
 	],
-"creatorBuild": "26261",
+"creatorBuild": "26680",
 "files": {
 	"\/coffee\/check.coffee": {
 		"ft": 32,
@@ -254,6 +254,16 @@
 		"mi": 1,
 		"oA": 1,
 		"oAP": "\/js\/vendor\/min\/easeljs.min-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
+	"\/js\/vendor\/exif.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 1,
+		"oAP": "\/js\/vendor\/min\/exif-min.js",
 		"oF": 0,
 		"sC": 1,
 		"tS": 0
@@ -802,7 +812,8 @@
 	"creationDate": 503227462,
 	"displayValue": "Public-all",
 	"displayValueWasSetByUser": 0,
-	"iconImageName": "defaultFrameworkIcon"
+	"iconImageName": "defaultFrameworkIcon",
+	"iconImageWasSetByUser": 0
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,
@@ -810,6 +821,7 @@
 	"animateCSSInjections": 1,
 	"autoBuildNewItems": 1,
 	"autoprefixerBrowserString": "> 1%, last 2 versions, Firefox ESR, Opera 12.1",
+	"autoprefixerEnableIEGrid": 0,
 	"babelAuxiliaryCommentAfter": "",
 	"babelAuxiliaryCommentBefore": "",
 	"babelConfigFileHandlingType": 0,
@@ -2604,6 +2616,7 @@
 		"autoOutputPathReplace1": "",
 		"autoOutputPathReplace2": "",
 		"autoOutputPathStyle": 0,
+		"outputFormat": 0,
 		"quality": 100
 		},
 	"languageDefaultsJS": {
