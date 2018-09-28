@@ -46,6 +46,19 @@
   position: relative
 =posf()
   position: fixed
+=abcenter()
+  position: absolute
+  left: 50%
+  transform: translate3d(-50%,0,0)
+=abmiddle()
+  position: absolute
+  top: 50%
+  transform: translate3d(0,-50%,0)
+=abcentermiddle()
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate3d(-50%,-50%,0)
 =tl($t: 0px,$l: 0px)
   top: $t
   left: $l
